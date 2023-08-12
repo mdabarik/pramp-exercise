@@ -21,9 +21,12 @@ class Solution {
           flatDict.put(initialKey + "." + key, "" + value);
         }
       } else {
-        if (key=="" || initialKey=="") {
+        if (initialKey=="") {
           helper(key, objectToHashMap(value), flatDict);
-        } else {
+        } else if (key=="") {
+          helper(initialKey, objectToHashMap(value), flatDict);
+        }
+        else {
           helper(initialKey+"."+key, objectToHashMap(value), flatDict);
         }
       }
